@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="result-container">
     <h1>Congratulations!</h1>
-    
+
     <!-- Add GIF here -->
     <div class="result-gif">
       <img src="giphy.gif" alt="Congratulations GIF" />
     </div>
-    
+
     <div id="result-message"></div>
     <button id="back-to-home" class="btn">Back to Home</button>
   </div>
@@ -28,7 +30,7 @@
 
     // Display the result message
     const resultMessage = document.getElementById('result-message');
-    resultMessage.innerHTML = `You won in ${moves} moves and ${time}!`;
+    resultMessage.innerHTML = `You win in ${moves} moves and ${time}!`;
 
     // Redirect back to home
     document.getElementById('back-to-home').addEventListener('click', () => {
@@ -36,4 +38,5 @@
     });
   </script>
 </body>
+
 </html>
