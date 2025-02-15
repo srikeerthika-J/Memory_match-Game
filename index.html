@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Memory Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="game-container">
+    <h1 class="title">Memory Match Game</h1>
+    <div class="controls">
+      <div class="dropdown">
+        <label for="level">Level:</label>
+        <select id="level">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div class="dropdown">
+        <label for="theme">Theme:</label>
+        <select id="theme">
+          <option value="animals">Animals</option>
+          <option value="emojis">Emojis</option>
+          <option value="colors">Colors</option>
+          <option value="fruits">Fruits</option>
+          <option value="shapes">Shapes</option>
+        </select>
+      </div>
+      
+      <button id="start" class="btn">Start Game</button>
+      <button id="hint" class="btn hide">Hint</button>
+    </div>
+    <div class="stats">
+      <div id="moves">Moves: 0</div>
+      <div id="time">Time: 00:00</div>
+    </div>
+    <div class="grid-container"></div>
+    <button id="restart" class="btn hide">Restart</button>
+    
+  </div>
+
+  
+  <audio id="match-sound" src="sounds/match.mp3"></audio>
+  <audio id="mismatch-sound" src="sounds/mismatch.mp3"></audio>
+  <audio id="win-sound" src="sounds/win.mp3"></audio>
+  <script src="script.js"></script>
+  
+</body>
+</html>

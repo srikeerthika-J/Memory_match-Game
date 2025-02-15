@@ -1,0 +1,508 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #8e44ad, #3498db);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Game Container */
+.game-container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  gap: 8px; /* Slightly smaller gap between tiles */
+  margin-top: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Card Styles */
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 48%; /* 2mm smaller width and height, aspect ratio still preserved */
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  transform: rotateY(0);
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card .card-front,
+.card .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card Front */
+.card-front {
+  background: #ecf0f1;
+}
+
+/* Card Back */
+.card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+}
+
+/* Card Image Styling */
+.card-image {
+  width: 80%;
+  height: auto;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+/* Controls and Buttons */
+.controls {
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  margin-bottom: 8px; /* 1mm smaller dropdown space */
+}
+
+.btn {
+  padding: 9px 18px; /* 1mm smaller button padding */
+  font-size: 1.1rem; /* 1mm smaller font size */
+  background: #27ae60;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #2ecc71;
+}
+
+.hide {
+  display: none;
+}
+
+/* Restart Button */
+#restart {
+  margin-top: 20px;
+}
+
+/* Gaming Button Base Style */
+.btn {
+  display: inline-block;
+  padding: 14px 38px; /* 1mm smaller padding */
+  font-size: 1.4rem; /* 1mm smaller font size */
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  border: 2px solid #555;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-shadow: 0 0 5px #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Add Glow Effect */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: 0.5s;
+  z-index: 1;
+  transform: skewX(-20deg);
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+  background: linear-gradient(135deg, #928dab, #1f1c2c);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.7);
+  border-color: #fff;
+}
+
+/* Active/Pressed Effect */
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Variant Buttons */
+#start {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  border-color: #00e6e6;
+}
+
+#start:hover {
+  border-color: #00ffff;
+}
+
+#restart {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border-color: #ff7373;
+}
+
+#restart:hover {
+  border-color: #ff9999;
+}
+
+#hint {
+  background: linear-gradient(135deg, #41295a, #2f0743);
+  border-color: #8c52ff;
+}
+
+#hint:hover {
+  border-color: #b266ff;
+}
+
+/* Dropdown Base Style */
+.dropdown select {
+  appearance: none;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+  font-size: 1.1rem; /* 1mm smaller font size */
+  font-weight: bold;
+  padding: 9px 14px; /* 1mm smaller padding */
+  border: 2px solid #555;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-shadow: 0 0 3px #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  position: relative;
+  width: 100%;
+}
+
+/* Add Glow Effect on Hover */
+.dropdown select:hover {
+  background: linear-gradient(135deg, #928dab, #1f1c2c);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2), 0 4px 10px rgba(0, 0, 0, 0.7);
+  border-color: #fff;
+}
+
+/* Active State */
+.dropdown select:focus {
+  outline: none;
+  border-color: #00e6e6;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6), 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Dropdown Arrow Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+}
+
+.dropdown select {
+  width: 100%;
+}
+
+.dropdown::after {
+  content: "▼";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* Dropdown Wrapper */
+.dropdown label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0 3px #000;
+}
+
+/* Controls Layout */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 18px; /* 1mm smaller gap */
+  margin-top: 20px;
+}
+
+/* Custom Dropdown Styles */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* .dropdown-header {
+  background: linear-gradient(135deg, #282c34, #3f4c6b);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.dropdown-header:hover {
+  background: linear-gradient(135deg, #4a69bd, #3f4c6b);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #3f4c6b;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.custom-dropdown.active .dropdown-list {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  color: #ffffff;
+  background: #3f4c6b;
+  transition: 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: #4a69bd;
+  color: #d1f1ff;
+}
+
+.dropdown-item.selected {
+  background: #1abc9c;
+  color: #ffffff;
+} */
+.dropdown-header {
+  background: linear-gradient(135deg, #282c34, #3f4c6b);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.dropdown-header:hover {
+  background: linear-gradient(135deg, #4a69bd, #3f4c6b);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #3f4c6b;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.custom-dropdown.active .dropdown-list {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  color: #ffffff;
+  background: #000000; /* Black background for the list items */
+  transition: 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: #1a1a1a; /* Slightly lighter black for hover */
+  color: #d1f1ff; /* Soft blue text color on hover */
+}
+
+.dropdown-item.selected {
+  background: #1abc9c; /* Teal for selected items */
+  color: #ffffff;
+}
+
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 3.5rem;
+  /* color: #ff6ec7;  */
+  color: rgb(46, 209, 209);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 
+               0 0 15px rgba(105, 210, 255, 0.8), 
+               0 0 25px rgb(4, 72, 67); /* Multiple layers for a glowing, neon-like shadow */
+  margin: 0;
+  background: linear-gradient(90deg, #ff6ec7, #ffcc33, #6effb4, #ff6ec7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: textRainbowGlow 2.5s ease infinite, popIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes textRainbowGlow {
+  0%, 100% {
+    text-shadow: 3px 3px 8px rgba(38, 179, 210, 0.511),
+                 0 0 20px rgba(67, 165, 206, 0.586),
+                 0 0 30px rgba(17, 144, 166, 0.492);
+  }
+  50% {
+    text-shadow: 3px 3px 12px rgba(28, 146, 167, 0.685),
+                 0 0 25px rgba(0, 255, 255, 0.481),
+                 0 0 40px rgba(11, 171, 158, 0.458);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Options Styling */
+.dropdown select option {
+  background: #000000; /* Black background for options */
+  color: #ffffff;      /* White text for visibility */
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.dropdown select option:hover {
+  background: #333333; /* Slightly lighter black on hover */
+  color: #ffcc33;      /* Highlight text color */
+}
+.result-gif img {
+  max-width: 50%;
+  height: auto;
+  margin: 10px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #f0f0f0; */
+  font-family: Arial, sans-serif;
+  background-image: url('122.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; 
+}
+
+#result-container {
+  text-align: center;
+  background: #ffffff; /* Optional background for the message */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#result-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+#back-to-home {
+  display: inline-block;
+  padding: 20px 30px;
+  background-color: #007BFF;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 150px;
+}
+
+#back-to-home:hover {
+  background-color: #0056b3;
+}
