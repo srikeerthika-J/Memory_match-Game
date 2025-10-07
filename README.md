@@ -3,8 +3,6 @@ The Memory Match Game is a fun card-matching game that enhances memory and focus
 
 <img width="1903" height="920" alt="Screenshot 2025-10-07 163419" src="https://github.com/user-attachments/assets/b4287e8f-3f83-4d72-a501-e72bddfb2bd2" />
 
-
-
 <img width="1899" height="913" alt="Screenshot 2025-10-07 163307" src="https://github.com/user-attachments/assets/bca06cfb-e512-467d-8886-6a40846634e9" />
 
 <img width="1892" height="921" alt="Screenshot 2025-10-07 163212" src="https://github.com/user-attachments/assets/7f882b0e-780d-42e2-9a32-1d8accbe6d80" />
